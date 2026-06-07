@@ -13,7 +13,7 @@ function Dashboard() {
   useEffect(() => {
 
     fetch(
-      "http://10.232.31.135:8000/alerts"
+      "http://16.171.152.82:8000/alerts"
     )
       .then((res) => {
 

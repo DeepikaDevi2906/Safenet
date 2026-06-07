@@ -25,7 +25,7 @@ function AlertDetails() {
     try {
 
       await fetch(
-        `http://10.232.31.135:8000/alerts/${state.id}/status`,
+        `http://16.171.152.82:8000/alerts/${state.id}/status`,
         {
           method: "PATCH",
 

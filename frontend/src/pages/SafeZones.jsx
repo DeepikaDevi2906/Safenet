@@ -20,7 +20,7 @@ function SafeZones() {
   const loadZones = () => {
 
     fetch(
-      "http://10.232.31.135:8000/safezones"
+      "http://16.171.152.82:8000/safezones"
     )
       .then((res) =>
         res.json()
@@ -50,7 +50,7 @@ function SafeZones() {
 
       const response =
         await fetch(
-          "http://10.232.31.135:8000/safezones",
+          "http://16.171.152.82:8000/safezones",
           {
             method: "POST",
 
@@ -96,7 +96,7 @@ function SafeZones() {
       try {
 
         await fetch(
-          `http://10.232.31.135:8000/safezones/${id}`,
+          `http://16.171.152.82:8000/safezones/${id}`,
           {
             method:
               "DELETE",

@@ -44,7 +44,7 @@ function LiveTracking() {
   useEffect(() => {
 
     fetch(
-      "http://10.232.31.135:8000/latest-tracking"
+      "http://16.171.152.82:8000/latest-tracking"
     )
       .then((res) =>
         res.json()
@@ -65,7 +65,7 @@ function LiveTracking() {
 
     const ws =
       new WebSocket(
-        "ws://10.232.31.135:8000/ws/location"
+        "ws://16.171.152.82:8000/ws/location"
       );
 
     ws.onopen = () => {

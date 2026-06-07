@@ -1071,3 +1071,72 @@ tr{
     min-width:700px;
   }
 }
+.users-page {
+  padding: 20px;
+  color: white;
+}
+
+.users-header {
+  margin-bottom: 25px;
+}
+
+.users-header h1 {
+  font-size: 32px;
+  margin-bottom: 8px;
+}
+
+.users-header p {
+  color: #b0b8c5;
+}
+
+.users-table-container {
+  background: #10274a;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 0 15px rgba(0,0,0,0.3);
+}
+
+.users-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.users-table th {
+  background: #16345f;
+  color: white;
+  padding: 15px;
+  text-align: center;
+}
+
+.users-table td {
+  padding: 15px;
+  text-align: center;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.users-table tr:hover {
+  background: rgba(255,255,255,0.05);
+}
+
+.user-badge {
+  background: #2563eb;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 14px;
+}
+
+@media(max-width:768px){
+
+  .users-table-container{
+    overflow-x:auto;
+  }
+
+  .users-table{
+    min-width:700px;
+  }
+
+  .users-header h1{
+    font-size:24px;
+  }
+}

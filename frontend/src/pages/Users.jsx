@@ -2,90 +2,153 @@ import { useEffect, useState } from "react";
 
 function Users() {
 
-  const [users, setUsers] =
-    useState([]);
+  const [users, setUsers] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-
     fetchUsers();
-
   }, []);
 
   const fetchUsers = async () => {
 
     try {
 
-      const response =
-        await fetch(
-          "http://16.171.152.82:8000/users"
-        );
+      const response = await fetch(
+        "http://16.171.152.82:8000/users"
+      );
 
-      const data =
-        await response.json();
+      const data = await response.json();
 
-      setUsers(data);
+      console.log("USERS DATA:", data);
+
+      // Handle different response formats
+      if (Array.isArray(data)) {
+
+        setUsers(data);
+
+      } else if (Array.isArray(data.users)) {
+
+        setUsers(data.users);
+
+      } else {
+
+        setUsers([]);
+
+      }
 
     } catch (error) {
 
       console.log(error);
+      setUsers([]);
+
+    } finally {
+
+      setLoading(false);
 
     }
 
   };
-return (
 
-  <div className="users-page">
+  if (loading) {
 
-    <div className="users-header">
-      <h1>👥 Users Management</h1>
-      <p>View all registered users</p>
-    </div>
+    return (
+      <div className="users-page">
+        <h2>Loading Users...</h2>
+      </div>
+    );
 
-    <div className="users-table-container">
+  }
 
-      <table className="users-table">
+  return (
 
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Email</th>
-          </tr>
-        </thead>
+    <div className="users-page">
 
-        <tbody>
+      <div className="users-header">
 
-          {users.map((user) => (
+        <h1>
+          👥 Users Management
+        </h1>
 
-            <tr key={user.id}>
+        <p>
+          Total Users: {users.length}
+        </p>
 
-              <td>
-                <span className="user-badge">
-                  #{user.id}
-                </span>
-              </td>
+      </div>
 
-              <td>
-                {user.username || user.name}
-              </td>
+      <div className="users-table-container">
 
-              <td>
-                {user.email}
-              </td>
+        <table className="users-table">
+
+          <thead>
+
+            <tr>
+
+              <th>ID</th>
+              <th>Name</th>
+              <th>Email</th>
 
             </tr>
 
-          ))}
+          </thead>
 
-        </tbody>
+          <tbody>
 
-      </table>
+            {
+
+              users.length > 0 ?
+
+              users.map((user) => (
+
+                <tr key={user.id}>
+
+                  <td>{user.id}</td>
+
+                  <td>
+                    {
+                      user.username ||
+                      user.name ||
+                      "N/A"
+                    }
+                  </td>
+
+                  <td>
+                    {
+                      user.email ||
+                      "N/A"
+                    }
+                  </td>
+
+                </tr>
+
+              ))
+
+              :
+
+              <tr>
+
+                <td
+                  colSpan="3"
+                  style={{
+                    textAlign: "center"
+                  }}
+                >
+                  No Users Found
+                </td>
+
+              </tr>
+
+            }
+
+          </tbody>
+
+        </table>
+
+      </div>
 
     </div>
 
-  </div>
+  );
 
-);
 }
 
 export default Users;

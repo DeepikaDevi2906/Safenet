@@ -11,6 +11,7 @@ import LiveTracking from "./pages/LiveTracking";
 import Heatmap from "./pages/Heatmap";
 import Analytics from "./pages/Analytics";
 import Alerts from "./pages/Alerts";
+import Users from "./pages/Users";
 
 function App() {
 
@@ -57,6 +58,11 @@ function App() {
            path="/alerts"
            element={<Alerts />}
           />
+
+          <Route
+  path="/users"
+  element={<Users />}
+/>
 
         </Routes>
 

@@ -1,0 +1,30 @@
+# AI Datasets
+ai_service/audio_model/datasets/
+ai_service/violence_model/datasets/
+
+# Trained Models
+*.pth
+*.pt
+
+# Numpy datasets
+*.npy
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Virtual Environments
+venv/
+.venv/
+**/venv/
+**/.venv/
+
+# Node
+node_modules/
+**/node_modules/
+
+build/
+dist/
+
+.env
+**/.env

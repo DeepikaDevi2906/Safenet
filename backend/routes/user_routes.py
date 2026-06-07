@@ -17,3 +17,24 @@ def get_me(current_user = Depends(get_current_user)):
     return {
         "user": current_user
     }
+
+@router.get("/users")
+def get_users():
+
+    db = SessionLocal()
+
+    users = db.query(User).all()
+
+    result = []
+
+    for user in users:
+
+        result.append({
+            "id": user.id,
+            "username": user.username,
+            "email": user.email
+        })
+
+    db.close()
+
+    return result

@@ -39,11 +39,6 @@ function Sidebar() {
       path: "/tracking"
     },
 
-    {
-      icon: <FaVideo />,
-      label: "Surveillance",
-      path: "/surveillance"
-    },
 
     {
       icon: <FaExclamationTriangle />,

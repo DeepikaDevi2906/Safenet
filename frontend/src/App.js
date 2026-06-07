@@ -10,6 +10,7 @@ import AlertDetails from "./pages/AlertDetails";
 import LiveTracking from "./pages/LiveTracking";
 import Heatmap from "./pages/Heatmap";
 import Analytics from "./pages/Analytics";
+import Alerts from "./pages/Alerts";
 
 function App() {
 
@@ -50,6 +51,11 @@ function App() {
           <Route
            path="/analytics"
            element={<Analytics />}
+          />
+
+          <Route
+           path="/alerts"
+           element={<Alerts />}
           />
 
         </Routes>

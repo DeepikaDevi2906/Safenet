@@ -1,13 +1,16 @@
 from fastapi import APIRouter
 from fastapi import Depends
 
+from db import SessionLocal
+from models.user import User
+
 from utils.helpers import get_current_user
 
 router = APIRouter()
 
 
 @router.get("/me")
-def get_me(current_user = Depends(get_current_user)):
+def get_me(current_user=Depends(get_current_user)):
 
     if not current_user:
         return {
@@ -18,23 +21,28 @@ def get_me(current_user = Depends(get_current_user)):
         "user": current_user
     }
 
+
 @router.get("/users")
 def get_users():
 
     db = SessionLocal()
 
-    users = db.query(User).all()
+    try:
 
-    result = []
+        users = db.query(User).all()
 
-    for user in users:
+        result = []
 
-        result.append({
-            "id": user.id,
-            "username": user.username,
-            "email": user.email
-        })
+        for user in users:
 
-    db.close()
+            result.append({
+                "id": user.id,
+                "username": user.username,
+                "email": user.email
+            })
 
-    return result
+        return result
+
+    finally:
+
+        db.close()

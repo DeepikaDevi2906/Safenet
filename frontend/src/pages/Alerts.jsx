@@ -17,7 +17,7 @@ function Alerts() {
     try {
 
       const response = await fetch(
-        "http://16.171.152.82:8000/alerts"
+        "http://13.48.182.195:8000/alerts"
       );
 
       const data = await response.json();

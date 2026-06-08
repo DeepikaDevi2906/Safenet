@@ -96,7 +96,7 @@ function SafeZones() {
       try {
 
         await fetch(
-          `http://16.171.152.82:8000/safezones/${id}`,
+          `http://13.48.182.195:8000/safezones/${id}`,
           {
             method:
               "DELETE",

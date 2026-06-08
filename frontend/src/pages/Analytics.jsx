@@ -22,7 +22,7 @@ function Analytics() {
   useEffect(() => {
 
     fetch(
-      "http://16.171.152.82:8000/analytics"
+      "http://13.48.182.195:8000/analytics"
     )
       .then((res) =>
         res.json()

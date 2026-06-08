@@ -14,7 +14,7 @@ function Users() {
     try {
 
       const response = await fetch(
-        "http://16.171.152.82:8000/users"
+        "http://13.48.182.195:8000/users"
       );
 
       const data = await response.json();

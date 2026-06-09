@@ -134,7 +134,7 @@ function Dashboard() {
     <div className="dashboard">
 
       <h1 className="dashboard-title">
-        SAFE NET Dashboard
+        SAFE NET Dashboard-CI/CD test
       </h1>
 
       <div className="cards-grid">
